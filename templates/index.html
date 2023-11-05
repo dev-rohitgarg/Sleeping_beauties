@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messed Up</title>
+    <link rel="stylesheet" href="/static/messed.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=MuseoModerno:wght@200;300&family=Phudu:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="bgImage">
+
+        <input type="checkbox" id="check">
+        <a href="/login"><button class="login">login</button></a>
+        
+        <div class="moto">go green, breathe clean. stop polluting the environment. save our planet. think before you
+            trash it.</div>
+
+        <div class="signUp">
+            <div class="radio">
+
+                <input type="radio" id="r1" name="1" checked="checked" onclick="stud()">
+                <label for="r1" class="r1">STUDENTS</label>
+                <input type="radio" id="r2" name="1" onclick="prof()">
+                <label for="r2" class="r2">PROFESSER</label>
+
+            </div>
+
+            <div class="catagory">
+                <form id="student" method="post" action="">
+                    {% csrf_token %}
+                    <label for="username">name :</label>
+                    <input type="text" id="username" class="textbox">
+
+                    <label for="roll">roll number :</label>
+                    <input type="text" id="roll" class="textbox">
+
+                    <label for="password">password :</label>
+                    <input type="text" id="password" class="textbox">
+
+                    <input type="submit" value="signin" class="submit" id="submitStudent">
+
+                </form>
+
+                <form id="prof" method="post" action="">
+                    {% csrf_token %}
+                    <label for="username">name :</label>
+                    <input type="text" id="username" class="textbox">
+
+                    <label for="roll">email id :</label>
+                    <input type="text" id="roll" class="textbox">
+
+                    <label for="password">password :</label>
+                    <input type="text" id="password" class="textbox">
+
+                    <input type="submit" value="signin" class="submit" id="submitProf">
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function stud() {
+            document.getElementById("student")
+                .style.visibility = "visible";
+            document.getElementById("prof")
+                .style.visibility = "hidden";
+        }
+        function prof() {
+            document.getElementById("student")
+                .style.visibility = "hidden";
+            document.getElementById("prof")
+                .style.visibility = "visible";
+        }
+    </script>
+
+</body>
+
+</html>
